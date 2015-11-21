@@ -1,0 +1,46 @@
+@font-face {
+    font-family: sintony;
+    src: url(../fonts/Sintony-Regular.otf);
+}
+
+html,
+body {
+  height: 100%;
+  background-image: linear-gradient(rgb(44, 62, 80), rgb(142, 68, 173));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sintony;
+}
+
+.navbar-default {
+  background-color: transparent;
+}
+
+#restaurants {
+  overflow: auto;
+}
+
+.restaurant {
+  height: 10%;
+  border: 3px solid transparent; 
+}
+
+.restaurant img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.bord {
+  border: 1px white solid;
+  margin: 1px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  opacity: 0.8;
+}
+
+#wrap {
+  background-color: blue;
+}
