@@ -53,7 +53,7 @@ var app = app || {};
             this.$restaurants.show();
         },
 
-        setBtnActive: function (but) {
+        setBtnActive: function ( but ) {
             this.$btnOptions.removeClass('active');
             this.$btnMain.removeClass('active');
             this.$btnRestaurants.removeClass('active');
