@@ -14,11 +14,11 @@ var app = app || {};
             'click #indexPage': 'clickIndex'
         },
 
-        initialize: function () {
+        initialize: function() {
 
-            this.model.on('change:money',this.moneyChanged,this);
-            this.model.on('change:incomePerClick',this.incomePCChanged,this);
-            this.model.on('change:incomePerSecond',this.incomePSChanged,this);
+            this.model.on( 'change:money', this.moneyChanged, this );
+            this.model.on( 'change:incomePerClick', this.incomePCChanged, this );
+            this.model.on( 'change:incomePerSecond', this.incomePSChanged, this );
 
             this.$btnOptions = this.$('#btnOptions');
             this.$btnMain = this.$('#btnMain');
@@ -42,56 +42,58 @@ var app = app || {};
             this.incomePSChanged();
         },
 
-        moneyChanged: function () {
+        moneyChanged: function() {
             this.$money.empty();
-            this.$money.append(this.model.get('money'));
+            this.$money.append( this.model.get('money') );
         },
 
         incomePSChanged: function() {
             this.$incomePS.empty();
-            this.$incomePS.append(this.model.get('incomePerSecond')+" PS");
+            this.$incomePS.append( this.model.get('incomePerSecond') + " PS" );
         },
 
         incomePCChanged: function() {
             this.$incomePC.empty();
-            this.$incomePC.append(this.model.get('incomePerClick')+" PC");
+            this.$incomePC.append( this.model.get('incomePerClick') + " PC" );
         },
 
-        showOptions: function () {
+        showOptions: function() {
             this.$indexPage.hide();
             this.$restaurants.hide();
 
-            this.setBtnActive(this.$btnOptions);
+            this.setBtnActive( this.$btnOptions );
             this.$options.show();
         },
 
-        showMain: function () {
+        showMain: function() {
             this.$options.hide();
             this.$restaurants.hide();
 
-            this.setBtnActive(this.$btnMain);
+            this.setBtnActive( this.$btnMain );
             this.$indexPage.show();
         },
 
-        showRestaurants: function () {
+        showRestaurants: function() {
             this.$options.hide();
             this.$indexPage.hide();
 
-            this.setBtnActive(this.$btnRestaurants);
+            this.setBtnActive( this.$btnRestaurants );
             this.$restaurants.show();
         },
 
-        setBtnActive: function ( but ) {
-            this.$btnOptions.removeClass('active');
-            this.$btnMain.removeClass('active');
-            this.$btnRestaurants.removeClass('active');
+        setBtnActive: function( but ) {
+            var activeStr = 'active';
+            this.$btnOptions.removeClass( activeStr );
+            this.$btnMain.removeClass( activeStr );
+            this.$btnRestaurants.removeClass( activeStr );
 
-            but.addClass('active');
+            but.addClass( activeStr );
         },
 
-        clickIndex: function () {
-            var clickIncome = this.model.get('money')+(this.model.get('incomePerClick')*this.model.get('multiplier'));
-            this.model.set({money:clickIncome});
+        clickIndex: function() {
+            var clickIncome = ( this.model.get('incomePerClick') * this.model.get('multiplier') );
+            clickIncome += this.model.get('money');
+            this.model.set( { money: clickIncome } );
         }
 
     });

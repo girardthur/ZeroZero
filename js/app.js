@@ -5,5 +5,5 @@ var app = app || {};
 $(function () {
     'use strict';
     var mainModel = new app.MainModel();
-    new app.AppView({model:mainModel});
+    new app.AppView( { model: mainModel } );
 });
