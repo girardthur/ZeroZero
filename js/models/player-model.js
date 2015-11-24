@@ -11,6 +11,10 @@ var app = app || {};
             startDate: '',
             moneySinceStart: 1999,
             tapSinceStart: 100
+        },
+
+        initialize: function() {
+
         }
 
     });

@@ -12,6 +12,10 @@ var app = app || {};
             stock: 10000,
             bought: false
             // products: ProductsCollec
+        },
+
+        initialize: function() {
+
         }
 
     });

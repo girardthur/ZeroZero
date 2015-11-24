@@ -13,6 +13,10 @@ var app = app || {};
             incomePerSecondBonus: 1,
             bought: false,
             price: 100
+        },
+
+        initialize: function() {
+
         }
 
     });

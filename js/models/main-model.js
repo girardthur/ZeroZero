@@ -15,6 +15,10 @@ var app = app || {};
             incomePerSecond: 2
             //restaurants: RestauCollec,
             //player: PlayerCollec,
+        },
+
+        initialize: function() {
+
         }
 
     });
