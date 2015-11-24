@@ -41,6 +41,10 @@ body {
   opacity: 0.8;
 }
 
-#wrap {
-  background-color: blue;
+.main {
+  height: 100%;
+}
+
+#indexPage {
+  height: 100%;
 }
