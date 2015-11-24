@@ -10,10 +10,16 @@ var app = app || {};
         events: {
             'click #btnOptions': 'showOptions',
             'click #btnMain': 'showMain',
-            'click #btnRestaurants': 'showRestaurants'
+            'click #btnRestaurants': 'showRestaurants',
+            'click #indexPage': 'clickIndex'
         },
 
         initialize: function () {
+
+            this.model.on('change:money',this.moneyChanged,this);
+            this.model.on('change:incomePerClick',this.incomePCChanged,this);
+            this.model.on('change:incomePerSecond',this.incomePSChanged,this);
+
             this.$btnOptions = this.$('#btnOptions');
             this.$btnMain = this.$('#btnMain');
             this.$btnRestaurants = this.$('#btnRestaurants');
@@ -22,11 +28,33 @@ var app = app || {};
             this.$restaurants = this.$('#restaurantsPage');
             this.$options = this.$('#optionsPage');
 
+            this.$money = this.$('#money');
+            this.$incomePS = this.$('#incomePS');
+            this.$incomePC = this.$('#incomePC');
+
             this.showMain();
+            this.render();
         },
 
-        render: function () {
-            // TMP VOID
+        render: function() {
+            this.moneyChanged();
+            this.incomePCChanged();
+            this.incomePSChanged();
+        },
+
+        moneyChanged: function () {
+            this.$money.empty();
+            this.$money.append(this.model.get('money'));
+        },
+
+        incomePSChanged: function() {
+            this.$incomePS.empty();
+            this.$incomePS.append(this.model.get('incomePerSecond')+" PS");
+        },
+
+        incomePCChanged: function() {
+            this.$incomePC.empty();
+            this.$incomePC.append(this.model.get('incomePerClick')+" PC");
         },
 
         showOptions: function () {
@@ -59,6 +87,11 @@ var app = app || {};
             this.$btnRestaurants.removeClass('active');
 
             but.addClass('active');
+        },
+
+        clickIndex: function () {
+            var clickIncome = this.model.get('money')+(this.model.get('incomePerClick')*this.model.get('multiplier'));
+            this.model.set({money:clickIncome});
         }
 
     });
