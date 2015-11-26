@@ -19,12 +19,17 @@ var app = app || {};
             this.fetch( { success: function() { console.log( "SUCCESS: Main model fetch" ) } } );
         },
 
+        loadRestaurants: function(restaurants ) {
+            this.restaurants = new app.RestaurantCollection( restaurants );
+        },
+
         loadPlayer: function( player ) {
             this.player = new app.PlayerModel( player );
         },
 
         parse: function( response ) {
             this.loadPlayer( response.player );
+            this.loadRestaurants( response.restaurants );
             return response;
         }
 

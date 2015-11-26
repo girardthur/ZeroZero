@@ -4,6 +4,10 @@ var app = app || {};
     'use strict';
 
     app.RestaurantCollection = Backbone.Collection.extend({
-        model: app.RestaurantModel
+        model: app.RestaurantModel,
+
+        initialize: function( models ) {
+
+        }
     });
 })();
