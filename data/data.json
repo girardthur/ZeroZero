@@ -15,10 +15,54 @@
   },
   "restaurants": [
     { "id":1,
-      "name": "FUKYEA"
+      "name": "restaurant 1 name",
+      "description": "restaurant 1 description",
+      "bought": true,
+      "products": [
+        {
+          "id": 11,
+          "name": "product 11 name",
+          "description": "product 11 description",
+          "incomePerClickBonus": 11,
+          "incomePerSecondBonus": 11,
+          "bought": true,
+          "price": 11
+        },
+        {
+          "id": 12,
+          "name": "product 12 name",
+          "description": "product 12 description",
+          "incomePerClickBonus": 12,
+          "incomePerSecondBonus": 12,
+          "bought": false,
+          "price": 12
+        }
+      ]
     },
     { "id":2,
-      "name": "LOLOLOL"
+      "name": "restaurant 2 name",
+      "description": "restaurant 2 description",
+      "bought": true,
+      "products": [
+        {
+          "id": 21,
+          "name": "product 21 name",
+          "description": "product 21 description",
+          "incomePerClickBonus": 21,
+          "incomePerSecondBonus": 21,
+          "bought": true,
+          "price": 21
+        },
+        {
+          "id": 22,
+          "name": "product 22 name",
+          "description": "product 22 description",
+          "incomePerClickBonus": 22,
+          "incomePerSecondBonus": 22,
+          "bought": false,
+          "price": 22
+        }
+      ]
     }
   ]
 }
