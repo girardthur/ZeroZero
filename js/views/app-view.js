@@ -28,9 +28,9 @@ var app = app || {};
             this.$restaurants = this.$('#restaurantsPage');
             this.$options = this.$('#optionsPage');
 
-            this.$money = this.$('#money');
-            this.$incomePS = this.$('#incomePS');
-            this.$incomePC = this.$('#incomePC');
+            this.$money = this.$('[data-target="money"]');
+            this.$incomePS = this.$('[data-target="incomePS"]');
+            this.$incomePC = this.$('[data-target="incomePC"]');
 
             this.showMain();
             this.render();
@@ -43,18 +43,15 @@ var app = app || {};
         },
 
         moneyChanged: function() {
-            this.$money.empty();
-            this.$money.append( this.model.get('money') );
+            this.$money.html( this.model.get('money') );
         },
 
         incomePSChanged: function() {
-            this.$incomePS.empty();
-            this.$incomePS.append( this.model.get('incomePerSecond') + " PS" );
+            this.$incomePS.html( this.model.get('incomePerSecond') + " PS" );
         },
 
         incomePCChanged: function() {
-            this.$incomePC.empty();
-            this.$incomePC.append( this.model.get('incomePerClick') + " PC" );
+            this.$incomePC.html( this.model.get('incomePerClick') + " PC" );
         },
 
         showOptions: function() {
