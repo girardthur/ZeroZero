@@ -1,0 +1,24 @@
+{
+  "id": 9,
+  "description": "main description",
+  "sound": false,
+  "money": 39,
+  "multiplier": 1,
+  "incomePerClick": 99,
+  "incomePerSecond": 2,
+  "player": {
+    "id": 1000,
+    "name": "Snoop Doge",
+    "startDate": "",
+    "moneySinceStart": 1999,
+    "tapSinceStart": 100
+  },
+  "restaurants": [
+    { "id":1,
+      "name": "FUKYEA"
+    },
+    { "id":2,
+      "name": "LOLOLOL"
+    }
+  ]
+}

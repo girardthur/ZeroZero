@@ -4,7 +4,7 @@ var app = app || {};
     'use strict';
 
     app.MainModel = Backbone.Model.extend({
-
+        url: "./data/data.json",
         defaults: {
             id: 1000,
             description: 'main description',
@@ -13,12 +13,19 @@ var app = app || {};
             multiplier: 1,
             incomePerClick: 3,
             incomePerSecond: 2
-            //restaurants: RestauCollec,
-            //player: PlayerCollec,
         },
 
         initialize: function() {
+            this.fetch( { success: function() { console.log( "SUCCESS: Main model fetch" ) } } );
+        },
 
+        loadPlayer: function( player ) {
+            this.player = new app.PlayerModel( player );
+        },
+
+        parse: function( response ) {
+            this.loadPlayer( response.player );
+            return response;
         }
 
     });
