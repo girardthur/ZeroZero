@@ -30,6 +30,14 @@ var app = app || {};
 
         getRestaurantIncomePerClick: function() {
             return this.products.getProductsIncomePerClick();
+        },
+
+        isValidProduct: function( productId ) {
+            return this.products.isValidProduct( productId );
+        },
+
+        getProduct: function( productId ) {
+            return this.products.get( productId );
         }
 
     });

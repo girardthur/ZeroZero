@@ -94,5 +94,5 @@ var app = app || {};
         }
 
     });
-    
+
 })(jQuery);

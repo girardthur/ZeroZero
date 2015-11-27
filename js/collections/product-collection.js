@@ -28,6 +28,18 @@ var app = app || {};
                 }
             }
             return productsIncomePerClick;
+        },
+
+        productExist: function( productId ) {
+            return typeof this.get( productId ) === 'object';
+        },
+
+        isValidProduct: function( productId ) {
+            if ( this.productExist( productId ) ) {
+                return this.get( productId ).get('bought') ? false : true;
+            } else {
+                return false;
+            }
         }
 
     });

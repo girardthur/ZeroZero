@@ -28,6 +28,43 @@ var app = app || {};
                 }
             }
             return restaurantsIncomePerClick;
+        },
+
+        getRestaurantIdWithProductId: function( productId ) {
+            return parseInt( productId.toString().slice( 0, 2 ) );
+        },
+
+        getRestaurantWithProductId: function( productId ) {
+            return this.get( this.getRestaurantIdWithProductId( productId ) );
+        },
+
+        restaurantExist: function( restaurantId ) {
+            return typeof this.get(restaurantId) === 'object';
+        },
+
+        isValidRestaurantRId: function( restaurantId ) {
+            if ( this.restaurantExist( restaurantId ) ) {
+                return this.get( restaurantId ).get('bought');
+            } else {
+                return false;
+            }
+        },
+
+        isValidRestaurantPId: function( productId ) {
+            return this.isValidRestaurantRId( this.getRestaurantIdWithProductId( productId ) );
+        },
+
+        isValidProduct: function( productId ) {
+            if ( this.isValidRestaurantPId( productId ) ) {
+                return this.getRestaurantWithProductId( productId ).isValidProduct( productId );
+            } else {
+                return false;
+            }
+
+        },
+
+        getProduct: function( productId ) {
+            return this.getRestaurantWithProductId( productId ).getProduct( productId );
         }
 
     });

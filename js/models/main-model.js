@@ -55,7 +55,7 @@ var app = app || {};
             return response;
         },
 
-        setIntervalWithContext : function( code, delay, context ){
+        setIntervalWithContext: function( code, delay, context ){
             return setInterval( function() {
                 code.call( context )
             }, delay )
@@ -65,6 +65,14 @@ var app = app || {};
             this.set({
                 money: ( this.get('incomePerSecond') * this.get('multiplier') ) + this.get('money')
             });
+        },
+
+        canBuy: function( productId ) {
+            if ( this.restaurants.isValidProduct( productId ) ) {
+                return this.restaurants.getProduct(productId).get('price') <= this.get('money');
+            } else {
+                return false;
+            }
         }
 
     });
