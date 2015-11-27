@@ -16,11 +16,25 @@ var app = app || {};
         },
 
         initialize: function() {
-            this.fetch( { success: function() { console.log( "SUCCESS: Main model fetch" ) } } );
+            var self = this;
+            this.fetch( { success: function(self) {
+                console.log( "SUCCESS: Main model fetch" );
+                self.refreshIncome();
+            } } );
+        },
+
+        refreshIncome: function() {
+            this.set( {
+                incomePerSecond: this.getTotalIncomePerSecond(),
+                incomePerClick: this.getTotalIncomePerClick()
+            });
         },
 
         loadRestaurants: function( restaurants ) {
             this.restaurants = new app.RestaurantCollection( restaurants );
+            this.restaurants.bind('change add',function(){
+                this.refreshIncome();
+            },this);
         },
 
         loadPlayer: function( player ) {
