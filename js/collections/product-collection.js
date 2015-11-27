@@ -4,6 +4,10 @@ var app = app || {};
     'use strict';
 
     app.ProductCollection = Backbone.Collection.extend({
-        model: app.ProductModel
+        model: app.ProductModel,
+
+        initialize: function( models ) {
+
+        }
     });
 })();

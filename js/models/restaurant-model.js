@@ -11,11 +11,14 @@ var app = app || {};
             description: 'restaurant description',
             stock: 10000,
             bought: false
-            // products: ProductsCollec
         },
 
         initialize: function() {
+            this.loadProducts();
+        },
 
+        loadProducts: function() {
+            this.products = new app.ProductCollection( this.get('products') );
         }
 
     });
