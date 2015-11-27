@@ -16,6 +16,7 @@ var app = app || {};
         },
 
         initialize: function() {
+            this.setIntervalWithContext( this.secondPassed, 1000, this );
             var self = this;
             this.fetch( { success: function(self) {
                 console.log( "SUCCESS: Main model fetch" );
@@ -27,14 +28,14 @@ var app = app || {};
             this.set( {
                 incomePerSecond: this.getTotalIncomePerSecond(),
                 incomePerClick: this.getTotalIncomePerClick()
-            });
+            } );
         },
 
         loadRestaurants: function( restaurants ) {
             this.restaurants = new app.RestaurantCollection( restaurants );
-            this.restaurants.bind('change add',function(){
+            this.restaurants.bind( 'change add', function() {
                 this.refreshIncome();
-            },this);
+            }, this );
         },
 
         loadPlayer: function( player ) {
@@ -53,6 +54,18 @@ var app = app || {};
             this.loadPlayer( response.player );
             this.loadRestaurants( response.restaurants );
             return response;
+        },
+
+        setIntervalWithContext : function( code, delay, context ){
+            return setInterval(function(){
+                code.call(context)
+            },delay)
+        },
+
+        secondPassed: function() {
+            this.set( {
+                money: ( this.get('incomePerSecond') * this.get('multiplier') ) + this.get('money')
+            } );
         }
 
     });
