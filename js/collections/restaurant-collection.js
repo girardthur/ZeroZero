@@ -13,7 +13,9 @@ var app = app || {};
         getRestaurantsIncomePerSecond: function() {
             var restaurantsIncomePerSecond = 0;
             for ( var i = 0; i < this.models.length; i++ ) {
-                restaurantsIncomePerSecond += this.models[i].getRestaurantIncomePerSecond();
+                if ( this.models[i].get('bought') ) {
+                    restaurantsIncomePerSecond += this.models[i].getRestaurantIncomePerSecond();
+                }
             }
             return restaurantsIncomePerSecond;
         },
@@ -21,7 +23,9 @@ var app = app || {};
         getRestaurantsIncomePerClick: function() {
             var restaurantsIncomePerClick = 0;
             for ( var i = 0; i < this.models.length; i++ ) {
-                restaurantsIncomePerClick += this.models[i].getRestaurantIncomePerClick();
+                if ( this.models[i].get('bought') ) {
+                    restaurantsIncomePerClick += this.models[i].getRestaurantIncomePerClick();
+                }
             }
             return restaurantsIncomePerClick;
         }

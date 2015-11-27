@@ -7,21 +7,25 @@ var app = app || {};
         model: app.ProductModel,
 
         initialize: function( models ) {
-            this.modelos = models;
+            this.on( "change:bought", this.refreshIncome, this);
         },
 
         getProductsIncomePerSecond: function() {
             var productsIncomePerSecond = 0;
-            for( var i = 0; i < this.modelos.length; i++ ){
-                productsIncomePerSecond += this.modelos[i].incomePerSecondBonus;
+            for( var i = 0; i < this.models.length; i++ ){
+                if ( this.models[i].get('bought') ){
+                    productsIncomePerSecond += this.models[i].get('incomePerSecondBonus');
+                }
             }
             return productsIncomePerSecond;
         },
 
         getProductsIncomePerClick: function() {
             var productsIncomePerClick = 0;
-            for( var i = 0; i < this.modelos.length; i++ ){
-                productsIncomePerClick += this.modelos[i].incomePerClickBonus;
+            for( var i = 0; i < this.models.length; i++ ){
+                if ( this.models[i].get('bought') ) {
+                    productsIncomePerClick += this.models[i].get('incomePerClickBonus');
+                }
             }
             return productsIncomePerClick;
         }
