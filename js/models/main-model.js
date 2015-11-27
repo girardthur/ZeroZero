@@ -19,7 +19,7 @@ var app = app || {};
             this.fetch( { success: function() { console.log( "SUCCESS: Main model fetch" ) } } );
         },
 
-        loadRestaurants: function(restaurants ) {
+        loadRestaurants: function( restaurants ) {
             this.restaurants = new app.RestaurantCollection( restaurants );
         },
 

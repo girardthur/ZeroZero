@@ -18,6 +18,5 @@ var app = app || {};
         initialize: function() {
 
         }
-
     });
 })();
