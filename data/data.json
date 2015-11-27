@@ -23,7 +23,7 @@
           "id": 11,
           "name": "product 11 name",
           "description": "product 11 description",
-          "incomePerClickBonus": 11,
+          "incomePerClickBonus": 111,
           "incomePerSecondBonus": 11,
           "bought": true,
           "price": 11
@@ -32,9 +32,9 @@
           "id": 12,
           "name": "product 12 name",
           "description": "product 12 description",
-          "incomePerClickBonus": 12,
+          "incomePerClickBonus": 112,
           "incomePerSecondBonus": 12,
-          "bought": false,
+          "bought": true,
           "price": 12
         }
       ]
@@ -48,7 +48,7 @@
           "id": 21,
           "name": "product 21 name",
           "description": "product 21 description",
-          "incomePerClickBonus": 21,
+          "incomePerClickBonus": 221,
           "incomePerSecondBonus": 21,
           "bought": true,
           "price": 21
@@ -57,7 +57,7 @@
           "id": 22,
           "name": "product 22 name",
           "description": "product 22 description",
-          "incomePerClickBonus": 22,
+          "incomePerClickBonus": 222,
           "incomePerSecondBonus": 22,
           "bought": false,
           "price": 22

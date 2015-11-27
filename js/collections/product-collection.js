@@ -7,7 +7,7 @@ var app = app || {};
         model: app.ProductModel,
 
         initialize: function( models ) {
-            this.on( "change:bought", this.refreshIncome, this);
+
         },
 
         getProductsIncomePerSecond: function() {
