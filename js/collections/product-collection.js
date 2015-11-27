@@ -12,8 +12,8 @@ var app = app || {};
 
         getProductsIncomePerSecond: function() {
             var productsIncomePerSecond = 0;
-            for( var i = 0; i < this.models.length; i++ ){
-                if ( this.models[i].get('bought') ){
+            for ( var i = 0; i < this.models.length; i++ ) {
+                if ( this.models[i].get('bought') ) {
                     productsIncomePerSecond += this.models[i].get('incomePerSecondBonus');
                 }
             }
@@ -22,12 +22,14 @@ var app = app || {};
 
         getProductsIncomePerClick: function() {
             var productsIncomePerClick = 0;
-            for( var i = 0; i < this.models.length; i++ ){
+            for ( var i = 0; i < this.models.length; i++ ) {
                 if ( this.models[i].get('bought') ) {
                     productsIncomePerClick += this.models[i].get('incomePerClickBonus');
                 }
             }
             return productsIncomePerClick;
         }
+
     });
+
 })();

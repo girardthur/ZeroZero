@@ -19,9 +19,9 @@ var app = app || {};
 
         loadProducts: function() {
             this.products = new app.ProductCollection( this.get('products') );
-            this.products.bind('change add',function(){
-                this.trigger('change',this);
-            },this);
+            this.products.bind( 'change add', function() {
+                this.trigger( 'change', this );
+            }, this );
         },
 
         getRestaurantIncomePerSecond: function() {
@@ -33,4 +33,5 @@ var app = app || {};
         }
 
     });
+
 })();

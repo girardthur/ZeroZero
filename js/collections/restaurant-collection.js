@@ -29,5 +29,7 @@ var app = app || {};
             }
             return restaurantsIncomePerClick;
         }
+
     });
+
 })();

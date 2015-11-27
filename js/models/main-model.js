@@ -18,8 +18,7 @@ var app = app || {};
         initialize: function() {
             this.setIntervalWithContext( this.secondPassed, 1000, this );
             var self = this;
-            this.fetch( { success: function(self) {
-                console.log( "SUCCESS: Main model fetch" );
+            this.fetch( { success: function( self ) {
                 self.refreshIncome();
             } } );
         },
@@ -57,16 +56,17 @@ var app = app || {};
         },
 
         setIntervalWithContext : function( code, delay, context ){
-            return setInterval(function(){
-                code.call(context)
-            },delay)
+            return setInterval( function() {
+                code.call( context )
+            }, delay )
         },
 
         secondPassed: function() {
-            this.set( {
+            this.set({
                 money: ( this.get('incomePerSecond') * this.get('multiplier') ) + this.get('money')
-            } );
+            });
         }
 
     });
+
 })();
