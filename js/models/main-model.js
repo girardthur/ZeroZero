@@ -27,6 +27,14 @@ var app = app || {};
             this.player = new app.PlayerModel( player );
         },
 
+        getTotalIncomePerSecond: function() {
+            return this.restaurants.getRestaurantsIncomePerSecond();
+        },
+
+        getTotalIncomePerClick: function() {
+            return this.restaurants.getRestaurantsIncomePerClick();
+        },
+
         parse: function( response ) {
             this.loadPlayer( response.player );
             this.loadRestaurants( response.restaurants );

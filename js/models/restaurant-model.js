@@ -19,6 +19,14 @@ var app = app || {};
 
         loadProducts: function() {
             this.products = new app.ProductCollection( this.get('products') );
+        },
+
+        getRestaurantIncomePerSecond: function() {
+            return this.products.getProductsIncomePerSecond();
+        },
+
+        getRestaurantIncomePerClick: function() {
+            return this.products.getProductsIncomePerClick();
         }
 
     });
