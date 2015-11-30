@@ -14,6 +14,11 @@ var app = app || {};
             'click #indexPage': 'clickIndex'
         },
 
+        /**
+         * AppView Constructor
+         *
+         * @return {AppView} appView
+         */
         initialize: function() {
 
             this.model.on( 'change:money', this.moneyChanged, this );
@@ -36,24 +41,39 @@ var app = app || {};
             this.render();
         },
 
+        /**
+         * render method
+         */
         render: function() {
             this.moneyChanged();
             this.incomePCChanged();
             this.incomePSChanged();
         },
 
+        /**
+         * Update money display
+         */
         moneyChanged: function() {
             this.$money.html( this.model.get('money') );
         },
 
+        /**
+         * Update income per second display
+         */
         incomePSChanged: function() {
             this.$incomePS.html( this.model.get('incomePerSecond') + " PS" );
         },
 
+        /**
+         * Update income per click display
+         */
         incomePCChanged: function() {
             this.$incomePC.html( this.model.get('incomePerClick') + " PC" );
         },
 
+        /**
+         * Show options screen
+         */
         showOptions: function() {
             this.$indexPage.hide();
             this.$restaurants.hide();
@@ -62,6 +82,9 @@ var app = app || {};
             this.$options.show();
         },
 
+        /**
+         * Show main screen
+         */
         showMain: function() {
             this.$options.hide();
             this.$restaurants.hide();
@@ -70,6 +93,9 @@ var app = app || {};
             this.$indexPage.show();
         },
 
+        /**
+         * Show restaurants screen
+         */
         showRestaurants: function() {
             this.$options.hide();
             this.$indexPage.hide();
@@ -78,6 +104,9 @@ var app = app || {};
             this.$restaurants.show();
         },
 
+        /**
+         * Update selected menu button
+         */
         setBtnActive: function( but ) {
             var activeStr = 'active';
             this.$btnOptions.removeClass( activeStr );
@@ -87,6 +116,9 @@ var app = app || {};
             but.addClass( activeStr );
         },
 
+        /**
+         * Update money for a click
+         */
         clickIndex: function() {
             var clickIncome = ( this.model.get('incomePerClick') * this.model.get('multiplier') );
             clickIncome += this.model.get('money');

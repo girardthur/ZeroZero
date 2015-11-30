@@ -15,6 +15,11 @@ var app = app || {};
             price: 100
         },
 
+        /**
+         * Product model constructor
+         *
+         * @return {ProductModel}
+         */
         initialize: function() {
 
         }

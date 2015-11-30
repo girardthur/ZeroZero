@@ -13,6 +13,11 @@ var app = app || {};
             tapSinceStart: 100
         },
 
+        /**
+         * Player model constructor
+         *
+         * @return {PlayerModel}
+         */
         initialize: function() {
 
         }
