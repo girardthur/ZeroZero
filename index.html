@@ -32,7 +32,7 @@
             <div id="restaurantsPage">
                 <div data-target="restaurants" class="container-fluid">
                     <script type="text/template" id="restaurants-template">
-                        <% _.each(restaurants, function(restaurant) { %>
+                        <% restaurants.each(function(restaurant) { %>
                             <div class="col-xs-12 restaurant">
                                 <%= restaurant.get('name') %>
                             </div>

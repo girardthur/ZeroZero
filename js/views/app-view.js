@@ -92,6 +92,8 @@ var app = app || {};
 
             this.setBtnActive( this.$btnMain );
             this.$indexPage.show();
+
+
         },
 
         /**
@@ -122,7 +124,12 @@ var app = app || {};
          */
         clickIndex: function() {
             this.model.clickIncome();
+            this.initRestaurants();
+        },
+
+        initRestaurants: function() {
             var arrayPotter = this.model.restaurants;
+            console.log(arrayPotter);
             var templ =  _.template($('#restaurants-template').html(), { restaurants: arrayPotter });
             this.$restaus.html(templ);
         }
