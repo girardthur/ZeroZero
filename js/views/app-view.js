@@ -105,6 +105,7 @@ var app = app || {};
 
             this.setBtnActive( this.$btnRestaurants );
             this.$restaurants.show();
+            this.initRestaurants();
         },
 
         /**
@@ -124,14 +125,11 @@ var app = app || {};
          */
         clickIndex: function() {
             this.model.clickIncome();
-            this.initRestaurants();
         },
 
         initRestaurants: function() {
-            var arrayPotter = this.model.restaurants;
-            console.log(arrayPotter);
-            var templ =  _.template($('#restaurants-template').html(), { restaurants: arrayPotter });
-            this.$restaus.html(templ);
+            var templ =  _.template($('#restaurants-template').html());
+            this.$restaus.html( templ( { restaurants: this.model.restaurants } ) );
         }
 
     });
