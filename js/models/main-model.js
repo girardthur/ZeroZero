@@ -124,6 +124,13 @@ var app = app || {};
             } else {
                 return false;
             }
+        },
+
+        /**
+         * Update money for a click
+         */
+        clickIncome: function() {
+            this.set( { money: ( this.get('incomePerClick') * this.get('multiplier') ) + this.get('money') } );
         }
 
     });

@@ -120,9 +120,7 @@ var app = app || {};
          * Update money for a click
          */
         clickIndex: function() {
-            var clickIncome = ( this.model.get('incomePerClick') * this.model.get('multiplier') );
-            clickIncome += this.model.get('money');
-            this.model.set( { money: clickIncome } );
+            this.model.clickIncome();
         }
 
     });
