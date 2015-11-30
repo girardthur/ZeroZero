@@ -30,42 +30,19 @@
 
             <!-- RESTAU PAGE -->
             <div id="restaurantsPage">
-                <div id="restaurants" class="container-fluid">
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=900%C3%97300&w=900&h=300"/>
-                    </div>
-                    <div class="col-xs-12 restaurant">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=900&h=300"/>
-                    </div>
+                <div data-target="restaurants" class="container-fluid">
+                    <script type="text/template" id="restaurants-template">
+                        <% _.each(restaurants, function(restaurant) { %>
+                            <div class="col-xs-12 restaurant">
+                                <%= restaurant.get('name') %>
+                            </div>
+                        <% }); %>
+                    </script>
                 </div>
             </div>
+            <!-- <div class="col-xs-12 restaurant">
+                <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=900&h=300"/>
+            </div> -->
 
             <!-- OPTIONS -->
             <div id="optionsPage">

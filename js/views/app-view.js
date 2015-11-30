@@ -31,6 +31,7 @@ var app = app || {};
 
             this.$indexPage = this.$('#indexPage');
             this.$restaurants = this.$('#restaurantsPage');
+            this.$restaus = this.$('[data-target="restaurants"]');
             this.$options = this.$('#optionsPage');
 
             this.$money = this.$('[data-target="money"]');
@@ -121,6 +122,9 @@ var app = app || {};
          */
         clickIndex: function() {
             this.model.clickIncome();
+            var arrayPotter = this.model.restaurants;
+            var templ =  _.template($('#restaurants-template').html(), { restaurants: arrayPotter });
+            this.$restaus.html(templ);
         }
 
     });
