@@ -11,7 +11,8 @@ var app = app || {};
             'click #btnOptions': 'showOptions',
             'click #btnMain': 'showMain',
             'click #btnRestaurants': 'showRestaurants',
-            'click #indexPage': 'clickIndex'
+            'click #indexPage': 'clickIndex',
+            'click [data-target-action="infosRestaurant"]': 'showProducts'
         },
 
         /**
@@ -40,6 +41,10 @@ var app = app || {};
 
             this.showMain();
             this.render();
+        },
+
+        showProducts: function( e ) {
+            console.log($(e.currentTarget).attr('data-id'));
         },
 
         /**

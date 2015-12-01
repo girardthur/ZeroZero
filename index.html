@@ -33,16 +33,13 @@
                 <div data-target="restaurants" class="container-fluid">
                     <script type="text/template" id="restaurants-template">
                         <% restaurants.each(function(restaurant) { %>
-                            <div id="restaurant<%= restaurant.get('id') %>" class="col-xs-12 restaurant">
+                            <div data-target-action="infosRestaurant" data-id="<%= restaurant.get('id') %>" class="col-xs-12 restaurant">
                                 <img src="resources/restaurants/<%= restaurant.get('id') %>.png"/>
                             </div>
                         <% }); %>
                     </script>
                 </div>
             </div>
-            <!-- <div class="col-xs-12 restaurant">
-                <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=900&h=300"/>
-            </div> -->
 
             <!-- OPTIONS -->
             <div id="optionsPage">
