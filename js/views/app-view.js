@@ -39,12 +39,22 @@ var app = app || {};
             this.$incomePS = this.$('[data-target="incomePS"]');
             this.$incomePC = this.$('[data-target="incomePC"]');
 
+            this.$popup = this.$('#popup');
+
             this.showMain();
             this.render();
         },
 
+        /**
+         * Show restaurant's products in popup
+         *
+         * @param {event} e
+         */
         showProducts: function( e ) {
-            console.log($(e.currentTarget).attr('data-id'));
+            var templ =  _.template( $('#modal-template').html() );
+            var restau = this.model.restaurants.get( $(e.currentTarget).attr('data-id') );
+
+            this.$popup.html( templ( { restaurant: restau} ) );
         },
 
         /**
@@ -132,8 +142,11 @@ var app = app || {};
             this.model.clickIncome();
         },
 
+        /**
+         * Initialize restaurants list
+         */
         initRestaurants: function() {
-            var templ =  _.template($('#restaurants-template').html());
+            var templ =  _.template( $('#restaurants-template').html() );
             this.$restaus.html( templ( { restaurants: this.model.restaurants } ) );
         }
 
