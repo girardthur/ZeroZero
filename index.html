@@ -34,7 +34,7 @@
                     <script type="text/template" id="restaurants-template">
                         <% restaurants.each(function(restaurant) { %>
                             <div data-target-action="infosRestaurant" data-id="<%= restaurant.get('id') %>" class="col-xs-12 restaurant">
-                                <img data-toggle="modal" data-target="#myModal" src="resources/restaurants/<%= restaurant.get('id') %>.png"/>
+                                <img data-toggle="modal" data-target="#myModal<%= restaurant.get('id') %>" src="resources/restaurants/<%= restaurant.get('id') %>.png"/>
                             </div>
                         <% }); %>
                     </script>
@@ -45,16 +45,43 @@
             <div id="popup"></div>
 
             <script type="text/template" id="modal-template">
-                <div id="myModal" class="modal fade" role="dialog">
+                <div id="myModal<%= restaurant.get('id') %>" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title"><%= restaurant.get('name') %> </h4>
                             </div>
-                            <div class="modal-body">
+                            <div class="container modal-body">
                                <% restaurant.products.each(function(product) { %>
-                                   <p> <%= product.get('name') %> </p>
+                                        <div class="col-xs-6"> <%= product.get('id') %> </div>
+                                        <div class="col-xs-6"> <%= product.get('name') %> </div>
+
+                                        <div class="col-xs-12"> <%= product.get('description') %> </div>
+
+                                        <div class="col-xs-6"> IPS: </div>
+                                        <div class="col-xs-6"><%= product.get('incomePerSecondBonus') %> </div>
+
+                                        <div class="col-xs-6"> IPC: </div>
+                                        <div class="col-xs-6"><%= product.get('incomePerClickBonus') %> </div>
+
+                                        <div class="col-xs-4"></div>
+                                        <% if ( !product.get('bought') ) { %>
+                                            <button type="button" class="col-xs-4 btn btn-warning btn-xs"
+                                                    data-id="<%= product.get('id') %>"
+                                                    data-target-action="clickBuyProduct" >
+                                                <%= product.get('price') %>
+                                            </button>
+                                        <% } else { %>
+                                            <button type="button" class="disabled col-xs-4 btn btn-success btn-xs">
+                                                <%= product.get('price') %>
+                                            </button>
+                                        <% } %>
+                                        <div class="col-xs-4"></div>
+
                                <% }); %>
+                            </div>
+                            <div class="modal-footer">
+                                IPS: <%= restaurant.getRestaurantIncomePerSecond() %>  / IPC: <%= restaurant.getRestaurantIncomePerClick() %>
                             </div>
                         </div>
                     </div>

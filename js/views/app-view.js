@@ -12,7 +12,8 @@ var app = app || {};
             'click #btnMain': 'showMain',
             'click #btnRestaurants': 'showRestaurants',
             'click #indexPage': 'clickIndex',
-            'click [data-target-action="infosRestaurant"]': 'showProducts'
+            'click [data-target-action="infosRestaurant"]': 'showProducts',
+            'click [data-target-action="clickBuyProduct"]': 'buyProduct'
         },
 
         /**
@@ -51,10 +52,12 @@ var app = app || {};
          * @param {event} e
          */
         showProducts: function( e ) {
-            var templ =  _.template( $('#modal-template').html() );
-            var restau = this.model.restaurants.get( $(e.currentTarget).attr('data-id') );
+            if ( this.model.restaurants.get( $(e.currentTarget).attr('data-id')).get('bought') ) {
+                var templ =  _.template( $('#modal-template').html() );
+                var restau = this.model.restaurants.get( $(e.currentTarget).attr('data-id') );
 
-            this.$popup.html( templ( { restaurant: restau} ) );
+                this.$popup.append( templ( { restaurant: restau} ) );
+            }
         },
 
         /**
