@@ -137,7 +137,7 @@ var Application = (function() {
         .then(this.initViews.bind(this))
         .then(function() {
           console.log('rdy TO click !');
-          self.showPage('Page.Restaurants');
+          self.showPage('Page.Main');
         })
         .catch(function(err) {
           console.error('El couillos dans le patos', err);
